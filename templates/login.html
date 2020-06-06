@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<br>
+<div class="container">
+<h1 >LOGIN FORM</h1>
+
+  <div class="row mt-4" >
+    <div class="col">
+<form action="/login" method="post">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="exampleInputEmail1">User Name</label>
+    <input type="text" class="form-control" name="username">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your data with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" name="password">
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>
+<div>
+    {% for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+ </div>
+</div>
+</div>
+</div>
+{% endblock %}

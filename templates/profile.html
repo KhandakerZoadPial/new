@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="container">
+	<br>
+	<br>
+	
+	
+	<div class="float-left">
+		<h1>Hey, {{user.first_name}}!</h1>
+
+	</div>
+	<div class="float-right">
+		<form action="/logout" method="post">
+			{% csrf_token %}
+		<h2> <button type="submit" class="btn btn-dark">Logout</button></h2>
+		</form>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+  <div class="row mt-4" >
+    <div class="col">
+
+
+
+
+
+      
+    
+
+
+       <ul class="list-group">
+       <li class="list-group-item active">Here is all the secret message you got...</li>
+        {% for post in posts %}
+         <li class="list-group-item">{{post.description}}</li>
+      </ul>
+
+
+
+       {% endfor %}
+
+       <div>
+    {% for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+ </div>
+
+    </div>
+ </div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}
+

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+	<br>
+	<br>
+	
+	
+	
+		<h1>Wellcome to , {{xs}}'s profile!</h1>
+
+	
+	<br>
+	<br>
+	<b>Here you can send secret message to your favourite person without letting them know who you are!<br>Keep in mind that using any kind of sexual word is strictly prohibited .</b> 
+	
+	
+	<br>
+	<br>
+  <div class="row mt-4" >
+    <div class="col">
+
+    	<form action="/{{xs}}" method="post">
+			{% csrf_token %}
+			<textarea name=des>Enter Detail</textarea>
+		<h2> <button type="submit" class="btn btn-dark">Post</button></h2>
+		</form>
+   <div>
+    {% for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+ </div>
+
+    </div>
+ </div>
+</div>
+
+ 
+{% endblock %}
